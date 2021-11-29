@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+// Está Classe é uma GodClass, precisa ser quebrada em outros pacotes e entrar no principio SOLID
 public class ChatBotMain extends JFrame {
 
 	private static final long serialVersionUID = 1L;
