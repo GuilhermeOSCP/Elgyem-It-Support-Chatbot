@@ -64,7 +64,7 @@ public class ChatBotMain extends JFrame {
 			}
 			
 		});
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		textField_1.setFont(new Font("Arial", Font.PLAIN, 23));
 		textField_1.setBounds(0, 555, 338, 60);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
@@ -77,7 +77,7 @@ public class ChatBotMain extends JFrame {
 		btnSend.setBounds(341, 555, 75, 59);
 		contentPane.add(btnSend);
 		textArea = new JTextArea();
-		textArea.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		textArea.setFont(new Font("Arial", Font.PLAIN, 19));
 		textArea.setEditable(false);
 		textArea.setBounds(0, 0, 396, 554);
 		contentPane.add(textArea);		
