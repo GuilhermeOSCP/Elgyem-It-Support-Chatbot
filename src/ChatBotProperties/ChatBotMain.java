@@ -1,5 +1,8 @@
 package ChatBotProperties;
 
+import ChatBotCore.ChatBotEngine;
+import ChatBotCore.ChatBotResponder;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -15,7 +18,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-// Está Classe é uma GodClass, precisa ser quebrada em outros pacotes e entrar no principio SOLID
+// Esta Classe e uma GodClass, precisa ser quebrada em outros pacotes e entrar no principio SOLID
 public class ChatBotMain extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -23,6 +26,8 @@ public class ChatBotMain extends JFrame {
 	private JTextField textField_1;
 	private JButton btnSend;
 	JTextArea textArea;
+
+	private final ChatBotResponder responder = new ChatBotEngine();
 	
 	// Iniciar o app | Launch the app
 
@@ -84,135 +89,18 @@ public class ChatBotMain extends JFrame {
 	}
 	
 
-      // Funcionamento da aplicação | Application operation
+      // Funcionamento da aplicaï¿½ï¿½o | Application operation
 
-	
-	void action()
-	{
-		
-		String query=textField_1.getText();
-		textArea.append(" Eu-> "+query+"\n");
-		//query.trim();
-		query=query.toLowerCase();
-		if(query.contains("clear screen")||query.contains("clr")||query.contains("cls"))
-		{
-			textArea.setText("");
-			textField_1.setText("");
-		}
-		else if(query.contains("oi")||query.contains("hey")||query.contains("ei")||query.contains("olá")||query.contains("ola"))
-		{
-			Random rand=new Random();
-			int a=rand.nextInt(4);
-			if(a==0)
-			{
-				Elgyem("Oi, estou aqui");
-			}
-			else if(a==1)
-			{
-				Elgyem("Hey, como está?");
-			}
-			else if(a==2)
-			{
-				Elgyem("Ei, tudo certo?");
-			}
-			else if(a==3)
-			{
-				Elgyem("Olá,como está?");
-			}
-			else if(a==4)
-			{
-				Elgyem("Saudações, Tudo Certo?");
-			}
-			
-		}
-		else if(query.contains("bem")||query.contains("Eu estou bem")||query.contains("estou bem"))
-		{
-			Random rand=new Random();
-			int a=rand.nextInt(4);
-			if(a==0)
-			{
-				Elgyem("É bom saber que você está bem");
-			}
-			else if(a==1)
-			{
-				Elgyem("É um prazer saber que você está bem");
-			}
-			else if(a==2)
-			{
-				Elgyem("Que ótimo");
-			}
-			else if(a==3)
-			{
-				Elgyem("Oh, uma ótima notícia");
-			}
-			else if(a==4)
-			{
-				Elgyem("Desejo, você sempre fica bem");
-			}
-		}
-		else if(query.contains("tudo certo?")||query.contains("tudo bem?")||query.contains("como você está?")||query.contains("como vai você?")
-				||query.contains("tudo bem por ai?")||query.contains("como está indo?"))
-		{
-			Elgyem("Eu estou bem e você?");
-		}
-		else if(query.contains("sim")||query.contains("tudo certo")||query.contains("estou bem"))
-		{
-			Random rand=new Random();
-			int a=rand.nextInt(2);
-			if(a==0)
-			{
-				Elgyem("Que ótimo");
-			}
-			else if(a==1)
-			{
-				Elgyem("Oh, uma ótima notícia");
-			}
-			else if(a==2)
-			{
-				Elgyem("Legal");
-			}
-		}
-		else if(query.contains("não")||query.contains("nada bem"))
-		{
-			Random rand=new Random();
-			int a=rand.nextInt(2);
-			if(a==0)
-			{
-				Elgyem("Por quê?");
-			}
-			else if(a==1)
-			{
-				Elgyem("Porque? de acordo com eu sei que você é uma pessoa muito legal");
-			}
-			else if(a==2)
-			{
-				Elgyem("Porque? Não perca seu tempo assim");
-			}
-		}
-		else{
-			Random rand=new Random();
-			int a=rand.nextInt(4);
-			if(a==0)
-			{
-				Elgyem("Desculpe, não consegui te entender");
-			}
-			else if(a==1)
-			{
-				Elgyem("Poderia repetir por gentileza?");
-			}
-			else if(a==2)
-			{
-				Elgyem("Não estou entendendo sua resposta");
-			}
-			else if(a==3)
-			{
-				Elgyem("Está complicado, poderia repetir?");
-			}
-		}
+
+	void action() {
+		String query = textField_1.getText();
+		textArea.append(" Eu -> " + query + "\n");
+		String response = responder.respond(query);
+		Elgyem(response);
 	}
 	
 	
-	// Inteligência Artificial | Artificial Intelligence
+	// Inteligencia Artificial | Artificial Intelligence
 	void Elgyem(String s)
 	{
 		textArea.append(" Elgyem->"+s+"\n\n");
