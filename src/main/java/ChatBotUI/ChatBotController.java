@@ -1,6 +1,7 @@
-package ChatBotUI;
+package main.java.ChatBotUI;
 
-import ChatBotCore.ChatBotResponder;
+import ChatBotUI.ChatBotView;
+import main.java.ChatBotCore.ChatBotResponder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
@@ -56,6 +57,7 @@ public class ChatBotController {
 
         String response = responder.respond(input);
         view.chatArea.append("Elgyem -> " + response + "\n\n");
+        view.scrollToBottom();
 
         view.inputField.setText("");
     }

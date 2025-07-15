@@ -1,4 +1,4 @@
-package ChatBotCore;
+package main.java.ChatBotCore;
 
 /**
  * Interface que define o contrato para qualquer mecanismo de resposta de chatbot.

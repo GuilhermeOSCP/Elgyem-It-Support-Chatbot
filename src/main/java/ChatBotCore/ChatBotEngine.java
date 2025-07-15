@@ -1,4 +1,4 @@
-package ChatBotCore;
+package main.java.ChatBotCore;
 
 import java.util.Random;
 

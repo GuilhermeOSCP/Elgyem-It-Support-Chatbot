@@ -1,7 +1,7 @@
-package Application;
+package main.java.Application;
 
-import ChatBotUI.ChatBotController;
-import ChatBotCore.ChatBotEngine;
+import main.java.ChatBotUI.ChatBotController;
+import main.java.ChatBotCore.ChatBotEngine;
 
 /**
  * Classe responsável por iniciar a aplicação.
