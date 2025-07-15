@@ -2,22 +2,31 @@ package ChatBotCore;
 
 import java.util.Random;
 
+/**
+ * Implementação básica da lógica de respostas do chatbot.
+ * Aplica SRP: trata apenas da geração da resposta com base na entrada.
+ */
 public class ChatBotEngine implements ChatBotResponder {
+
+    private final Random rand = new Random();
 
     @Override
     public String respond(String input) {
         if (input == null || input.isBlank()) return "Pode digitar algo?";
 
         String query = input.toLowerCase();
-        Random rand = new Random();
+
+        if (query.contains("clear screen") || query.contains("cls") || query.contains("limpar")) {
+            return "Tela limpa (simulada).";
+        }
 
         if (query.contains("oi") || query.contains("ola") || query.contains("hey")) {
             return switch (rand.nextInt(5)) {
-                case 0 -> "Oi, estou aqui";
+                case 0 -> "Oi, estou aqui!";
                 case 1 -> "Hey, como está?";
                 case 2 -> "Ei, tudo certo?";
-                case 3 -> "Olá, como está?";
-                default -> "Saudações, tudo certo?";
+                case 3 -> "Olá, como vai?";
+                default -> "Saudações, tudo bem?";
             };
         }
 
@@ -30,7 +39,7 @@ public class ChatBotEngine implements ChatBotResponder {
             };
         }
 
-        if (query.contains("tudo bem?") || query.contains("como vai")) {
+        if (query.contains("tudo bem") || query.contains("como vai")) {
             return "Eu estou bem e você?";
         }
 
